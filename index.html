@@ -214,7 +214,7 @@ certeza de que la belleza siempre merece ser celebrada.</p>
             - Por defecto el formulario usa un action de ejemplo de Formspree (cámbialo por tu endpoint real) o déjalo con '#' para pruebas.
             - Alternativas: Mailchimp/ConvertKit (pega su <form>), Getform, Netlify Forms, Brevo, Klaviyo, etc.
           -->
-          <form class="form" id="form-news" action="https://formspree.io/f/XXXXX" method="POST" novalidate>
+          <form class="form" id="form-news" action="https://formspree.io/f/xzzakwkg" method="POST" novalidate>
             <input type="email" name="email" class="input" placeholder="Tu correo electrónico" aria-label="Correo electrónico" required />
             <button type="submit" class="btn btn-accent">Quiero participar</button>
             <div class="checkbox">
@@ -266,7 +266,7 @@ certeza de que la belleza siempre merece ser celebrada.</p>
       if(!ok){ alert('Debes aceptar la política de privacidad'); return; }
 
       try{
-        await fetch('https://formspree.io/f/XXXXX', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ email }) });
+        await fetch('https://formspree.io/f/xzzakwkg', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ email }) });
         toast.style.display = 'block';
         setTimeout(()=> toast.style.display='none', 2600);
         form.reset();

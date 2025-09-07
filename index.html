@@ -11,7 +11,7 @@
   <meta name="description" content="Joyería oscura y elegante. El esplendor en cada detalle. Piezas en plata y acero de alto pulido con estética minimalista. Suscríbete para participar en el sorteo de 1 joya gratis.">
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/og-image.jpg" />
-  <meta property="og:url" content="https://benditotito.github.io/AGLAYA/#sorteo" />
+ <meta property="og:url" content="https://benditotito.github.io/AGLAYA/">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,9 +45,6 @@
     }
     .nav{display:flex; align-items:center; justify-content:space-between; padding:18px 0}
     .brand{display:flex; align-items:center; gap:12px}
-    .brand-mark{
-      width:44px; height:44px; border-radius:12px; background:conic-gradient(from 180deg, #2a2a30, #0f0f12);
-      position:relative; box-shadow:0 0 0 1px rgba(255,255,255,.04) inset, 0 12px 30px rgba(0,0,0,.5);
     }
     .badge{font-size:13.5px; color:var(--muted); border:1px solid rgba(255,255,255,.08); padding:8px 12px; border-radius:999px}
    @media (max-width:900px){
@@ -299,30 +296,30 @@ certeza de que la belleza siempre merece ser celebrada.</p>
   </div>
 </section>
     <!-- NEWSLETTER / SORTEO -->
-   <div class="newsletter">
-  <h4>Sorteo gratuito · o compra por 24,68 €</h4>
-  <p>Puedes entrar <strong>gratis</strong> dejando tu correo, o comprar directamente la pieza del DROP 01 por <strong>24,68 €</strong>.</p>
+   <!-- NEWSLETTER / SORTEO -->
+<section id="sorteo">
+  <div class="container">
+    <div class="newsletter">
+      <h4>Sorteo gratuito · o compra por 24,68 €</h4>
+      <p>Puedes entrar <strong>gratis</strong> dejando tu correo, o comprar directamente la pieza del DROP 01 por <strong>24,68 €</strong>.</p>
 
-  <div class="cta-row" style="margin-bottom:12px">
-    <a href="https://donate.stripe.com/5kQ8wReA9d0G8Wl1bT38400" class="btn btn-buy">Comprar por 24,68 €</a>
-  </div>
-          <!--
-            🔧 INSTRUCCIONES DEL FORMULARIO
-            - Por defecto el formulario usa un action de ejemplo de Formspree (cámbialo por tu endpoint real) o déjalo con '#' para pruebas.
-            - Alternativas: Mailchimp/ConvertKit (pega su <form>), Getform, Netlify Forms, Brevo, Klaviyo, etc.
-          -->
-          <form class="form" id="form-news" action="https://formspree.io/f/mzzakqze" method="POST" novalidate>
-            <input type="email" name="email" class="input" placeholder="Tu correo electrónico" aria-label="Correo electrónico" required />
-            <button type="submit" class="btn btn-accent">Quiero participar</button>
-            <div class="checkbox">
-              <input id="acepto" type="checkbox" required />
-              <label for="acepto">Acepto la <a href="#privacidad">política de privacidad</a> y recibir comunicaciones de AGLAYA.</label>
-            </div>
-            <input type="hidden" name="origen" value="landing-sorteo" />
-          </form>
-        </div>
+      <div class="cta-row" style="margin-bottom:12px">
+        <a href="https://donate.stripe.com/5kQ8wReA9d0G8Wl1bT38400" class="btn btn-buy">Comprar por 24,68 €</a>
       </div>
-    </section>
+
+      <!-- Participación gratuita -->
+      <form class="form" id="form-news" action="https://formspree.io/f/mzzakqze" method="POST" novalidate>
+        <input type="email" name="email" class="input" placeholder="Tu correo electrónico" aria-label="Correo electrónico" required />
+        <button type="submit" class="btn btn-accent">Quiero participar</button>
+        <div class="checkbox">
+          <input id="acepto" type="checkbox" required />
+          <label for="acepto">Acepto la <a href="#privacidad">política de privacidad</a> y recibir comunicaciones de AGLAYA.</label>
+        </div>
+        <input type="hidden" name="origen" value="landing-sorteo" />
+      </form>
+    </div>
+  </div>
+</section>
 
     <!-- POLÍTICA / AVISO BREVE -->
     <section id="privacidad">
@@ -348,30 +345,34 @@ certeza de que la belleza siempre merece ser celebrada.</p>
   <!-- Toast minimal -->
   <div class="toast" id="toast" role="status" aria-live="polite">Gracias. Revisa tu bandeja de entrada ✉️</div>
 
-  <script>
-    // Año dinámico
-    document.getElementById('year').textContent = new Date().getFullYear();
+ <script>
+  // Año dinámico
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Manejo básico del formulario con feedback. Sustituye el fetch por tu servicio real.
-    const form = document.getElementById('form-news');
-    const toast = document.getElementById('toast');
-    form.addEventListener('submit', async (e)=>{
-      e.preventDefault();
-      const email = form.querySelector('input[type="email"]').value.trim();
-      const ok = form.querySelector('#acepto').checked;
-      if(!email){ alert('Introduce un correo válido'); return; }
-      if(!ok){ alert('Debes aceptar la política de privacidad'); return; }
+  // Manejo del formulario (Formspree)
+  const form = document.getElementById('form-news');
+  const toast = document.getElementById('toast');
 
-      try{
-       await fetch('https://formspree.io/f/mzzakqze', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json'
-  },
-  body: JSON.stringify({ email })
-});
+  form.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    const email = form.querySelector('input[type="email"]').value.trim();
+    const ok = form.querySelector('#acepto').checked;
+    if(!email){ alert('Introduce un correo válido'); return; }
+    if(!ok){ alert('Debes aceptar la política de privacidad'); return; }
 
-  </script>
+    try{
+      await fetch('https://formspree.io/f/mzzakqze', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+      toast.style.display = 'block';
+      setTimeout(()=> toast.style.display = 'none', 2600);
+      form.reset();
+    }catch(err){
+      alert('No se pudo enviar. Inténtalo más tarde.');
+    }
+  });
+</script>
 </body>
 </html>

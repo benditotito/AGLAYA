@@ -4,20 +4,20 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AGLAYA — Joyería Contemporánea</title>
-  <meta name="description" content="Joyería oscura y elegante. El esplendor en cada detalle. Piezas en plata y acero de alto pulido con estética minimalista. Suscríbete para participar en el sorteo de 1 joya gratis." />
-  <meta name="theme-color" content="#0a0a0a" />
-
+ <meta property="og:description" content="Oscura, elegante y minimalista. El esplendor en cada detalle. Participa en el sorteo dejando tu correo." />
+  
   <!-- Open Graph / Social -->
   <meta property="og:title" content="AGLAYA — Joyería Contemporánea" />
-  <meta property="og:description\" content=\"Oscura, elegante y minimalista. El esplendor en cada detalle. Participa en el sorteo dejando tu correo.\" />
+  <meta name="description" content="Joyería oscura y elegante. El esplendor en cada detalle. Piezas en plata y acero de alto pulido con estética minimalista. Suscríbete para participar en el sorteo de 1 joya gratis.">
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/og-image.jpg" />
-  <meta property="og:url" content="https://tudominio.com" />
+  <meta property="og:url" content="https://benditotito.github.io/AGLAYA/#sorteo" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="logo.png" type="image/png">
 
   <style>
     :root{
@@ -49,19 +49,12 @@
       width:44px; height:44px; border-radius:12px; background:conic-gradient(from 180deg, #2a2a30, #0f0f12);
       position:relative; box-shadow:0 0 0 1px rgba(255,255,255,.04) inset, 0 12px 30px rgba(0,0,0,.5);
     }
-    .brand-mark::after{content:""; position:absolute; inset:3px; border-radius:9px; background:linear-gradient(145deg, rgba(255,255,255,.08), rgba(255,255,255,.01)); box-shadow:0 0 0 1px rgba(255,255,255,.06) inset}
-    .brand h1{font:600 22px/1 Playfair Display, serif; letter-spacing:.8px; margin:0}
     .badge{font-size:13.5px; color:var(--muted); border:1px solid rgba(255,255,255,.08); padding:8px 12px; border-radius:999px}
-    @media (max-width:900px){
-  .brand-logo{width:56px;height:56px;border-radius:12px;object-fit:contain;filter:drop-shadow(0 0 14px rgba(255,255,255,.22))}
-      @media (max-width:900px){
+   @media (max-width:900px){
   .brand-logo{width:36px;height:36px}
+  .brand h1{font-size:18px}
+  .badge{font-size:12px; padding:6px 10px}
 }
-      
-  .brand h1{ font-size:18px; }
-  .badge{ font-size:12px; padding:6px 10px; }
-}
-
 .hero-logo{width:64px;height:64px;object-fit:contain;filter:drop-shadow(0 0 18px rgba(255,255,255,.2));margin:0 0 8px}
 @media (max-width:900px){ .hero-logo{width:48px;height:48px} }
     
@@ -71,8 +64,7 @@
     @media (max-width:900px){ .hero .inner{grid-template-columns:1fr; padding:48px 0} }
 
     .hero-copy h2{font:700 54px/1.05 Playfair Display, serif; letter-spacing:.2px; margin:0 0 16px}
-    .hero-copy p{color:var(--muted); margin:0 0 26px; max-width:56ch}
-    <img class="hero-logo" src="logo.png" alt="AGLAYA" />
+    .hero-copy p{color:var(--muted); margin:0 0 26px; max-width:56ch} 
 
     .cta-row{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
     .btn{display:inline-flex; align-items:center; gap:10px; border:1px solid rgba(255,255,255,.1); padding:12px 18px; border-radius:12px; transition:.2s transform,.2s box-shadow,.2s background}
@@ -151,15 +143,36 @@
     .about-list{display:flex; flex-direction:column; gap:16px}
     .about-list .card{padding:20px}
     @media (max-width:900px){ .about{grid-template-columns:1fr} .about-media{min-height:400px} }
+    /* === DROP 01 (pieza del sorteo) === */
+#drop1{padding:72px 0; border-top:1px solid rgba(255,255,255,.06)}
+#drop1 .wrap{display:grid; grid-template-columns:1.1fr .9fr; gap:28px; align-items:stretch}
+@media (max-width:900px){ #drop1 .wrap{grid-template-columns:1fr} }
+
+.drop-media{
+  border-radius:22px; overflow:hidden; background:#0e0e12;
+  border:1px solid rgba(255,255,255,.08); box-shadow:0 12px 36px rgba(0,0,0,.45)
+}
+.drop-media img{width:100%; height:100%; object-fit:cover; filter:contrast(1.06) saturate(.95) brightness(.96)}
+
+.drop-info{
+  background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+  border:1px solid rgba(255,255,255,.08); border-radius:18px; padding:22px
+}
+.drop-info h3{font:600 28px/1.2 Playfair Display, serif; margin:0 0 10px}
+.drop-info p{color:var(--muted); margin:0 0 16px}
+
+.drop-badge{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:8px 12px; border-radius:999px;
+  background:linear-gradient(180deg, rgba(199,168,110,.12), rgba(199,168,110,.06));
+  border:1px solid rgba(199,168,110,.35); color:var(--text); font-size:13px
+}
+.drop-meta{display:flex; gap:16px; flex-wrap:wrap; color:var(--muted); font-size:14px}
+.drop-meta span{display:inline-flex; align-items:center; gap:8px; opacity:.9}
   </style>
 </head>
 <body>
   <!-- Fondo con transición sutil en B/N -->
-  <div class="bg-slideshow" aria-hidden="true">
-    <div class="slide s1"></div>
-    <div class="slide s2"></div>
-    <div class="veil"></div>
-  </div>
   <header>
     <div class="container nav">
       <div class="brand">
@@ -169,6 +182,7 @@
       <div class="links">
         <a class="badge" href="#sobre">La marca</a>
         <a class="badge" href="#oficio">Oficio</a>
+        <a class="badge" href="#drop1">Drop 01</a>
         <a class="badge" href="#sorteo">Sorteo</a>
       </div>
     </div>
@@ -245,7 +259,39 @@ certeza de que la belleza siempre merece ser celebrada.</p>
     </section>
 
     <!-- LOOKBOOK -->
-    
+    <!-- DROP 01 — pieza del sorteo -->
+<section id="drop1" aria-labelledby="drop1-title">
+  <div class="container">
+    <div class="wrap">
+      <!-- Imagen del drop -->
+      <figure class="drop-media">
+        <img src="drop1.jpg" alt="AGLAYA · Drop 01 — Cruz Celestial (pieza del sorteo)" loading="lazy" />
+      </figure>
+
+      <!-- Texto y CTA -->
+      <div class="drop-info">
+        <span class="drop-badge">DROP 01 · Sorteo activo</span>
+        <h3 id="drop1-title">Edición especial — Cruz Celestial</h3>
+        <p>
+          Presentamos nuestro primer lanzamiento editorial. Una pieza sobria y luminosa,
+          creada para simbolizar el esplendor en lo esencial. Este DROP 01 se sortea entre
+          quienes dejen su correo.
+        </p>
+
+        <div class="drop-meta">
+          <span>Edición · 01</span>
+          <span>Pieza sorteada</span>
+          <span>Acabado: pulido espejo</span>
+        </div>
+
+        <div class="cta-row" style="margin-top:16px">
+          <a href="#sorteo" class="btn btn-accent">Participar en el sorteo</a>
+          <a href="#privacidad" class="btn btn-primary">Bases y privacidad</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
     <!-- NEWSLETTER / SORTEO -->
     <section id="sorteo">
       <div class="container">
@@ -282,7 +328,7 @@ certeza de que la belleza siempre merece ser celebrada.</p>
 
   <footer>
     <div class="container foot">
-      <small>© <span id="year"></span> AGLAYA. Todos los derechos reservados. Todos los derechos reservados.</small>
+     <small>© <span id="year"></span> AGLAYA. Todos los derechos reservados.</small>
       <div class="links">
         <a href="#privacidad">Privacidad</a>
         <a href="#terminos">Términos</a>
@@ -310,14 +356,15 @@ certeza de que la belleza siempre merece ser celebrada.</p>
       if(!ok){ alert('Debes aceptar la política de privacidad'); return; }
 
       try{
-        await fetch('https://formspree.io/f/mzzakqze', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ email }) });
-        toast.style.display = 'block';
-        setTimeout(()=> toast.style.display='none', 2600);
-        form.reset();
-      }catch(err){
-        alert('No se pudo enviar. Inténtalo más tarde.');
-      }
-    });
+       await fetch('https://formspree.io/f/mzzakqze', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
+  },
+  body: JSON.stringify({ email })
+});
+
   </script>
 </body>
 </html>

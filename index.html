@@ -171,6 +171,35 @@
   border:1px solid rgba(255,255,255,.12);
   background:linear-gradient(180deg, #1a1a1f, #0f0f14);
 }
+    /* Pill para límite de unidades */
+.badge.limit{
+  display:inline-flex; align-items:center; gap:6px;
+  padding:8px 12px; border-radius:999px; margin-right:6px;
+  background:linear-gradient(180deg, rgba(199,168,110,.14), rgba(199,168,110,.06));
+  border:1px solid rgba(199,168,110,.38); color:var(--text); font-size:13px;
+}
+    /* === Catálogo === */
+.catalogo{padding:72px 0; border-top:1px solid rgba(255,255,255,.06)}
+.catalog-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px}
+@media (max-width:900px){ .catalog-grid{grid-template-columns:1fr} }
+
+.product{
+  display:flex; flex-direction:column; gap:12px;
+  background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+  border:1px solid rgba(255,255,255,.08); border-radius:18px; padding:16px;
+}
+.product .thumb{
+  aspect-ratio:4/5; border-radius:14px; overflow:hidden; background:#0e0e12;
+  border:1px solid rgba(255,255,255,.08); display:block;
+}
+.product .thumb img{width:100%; height:100%; object-fit:cover}
+.product h4{font:500 18px/1.3 Playfair Display, serif; margin:0}
+.row{display:flex; align-items:center; justify-content:space-between; gap:12px}
+.price{font-weight:600; color:#fff}
+.status{font-size:12.5px; padding:6px 10px; border-radius:999px; border:1px solid rgba(255,255,255,.1); color:var(--muted)}
+.status-pre{background:linear-gradient(180deg, rgba(199,168,110,.14), rgba(199,168,110,.05)); border-color:rgba(199,168,110,.35); color:var(--text)}
+.status-soon{background:rgba(255,255,255,.04)}
+.status-sold{background:rgba(255,0,0,.06); border-color:rgba(255,0,0,.25); color:#ffb0b0}
   </style>
 </head>
 <body>
@@ -182,10 +211,11 @@
         <h1>AGLAYA</h1>
       </div>
       <div class="links">
-        <a class="badge" href="#sobre">La marca</a>
+        <a class="badge" href="#sobre">AGLAYA</a>
         <a class="badge" href="#oficio">Oficio</a>
         <a class="badge" href="#drop1">Drop 01</a>
         <a class="badge" href="#sorteo">Sorteo</a>
+        <a class="badge" href="#catalogo">Catálogo</a>
       </div>
     </div>
   </header>
@@ -286,16 +316,67 @@ certeza de que la belleza siempre merece ser celebrada.</p>
           <span>Acabado: pulido espejo</span>
         </div>
 
-       <div class="cta-row" style="margin-top:16px">
+      <div class="cta-row" style="margin-top:16px">
+  <span class="badge limit">Edición limitada · 10 uds</span>
   <a href="#sorteo" class="btn btn-accent">Participar gratis</a>
-  <a href="https:" class="btn btn-buy">Comprar por 24,68 €</a>
+  <a href="https://donate.stripe.com/5kQ8wReA9d0G8Wl1bT38400" class="btn btn-buy">Comprar por 24,68 €</a>
   <a href="#privacidad" class="btn btn-primary">Bases y privacidad</a>
 </div>
       </div>
     </div>
   </div>
 </section>
-    <!-- NEWSLETTER / SORTEO -->
+   <!-- CATÁLOGO -->
+<section id="catalogo" class="catalogo">
+  <div class="container">
+    <h3>Catálogo</h3>
+    <p class="lead">Selección inicial de piezas. Pre-order y lanzamientos por drops.</p>
+
+    <div class="catalog-grid">
+      <!-- Producto 1: el Drop 01 -->
+      <article class="product">
+        <a class="thumb" href="#drop1" aria-label="Cruz Celestial · Drop 01">
+          <img src="drop1.jpg" alt="AGLAYA — Cruz Celestial · Drop 01" loading="lazy">
+        </a>
+        <h4>Cruz Celestial · Drop 01</h4>
+        <div class="row">
+          <span class="price">24,68 €</span>
+          <span class="status status-pre">Edición limitada · 10 uds</span>
+        </div>
+        <div class="cta-row">
+          <a href="https://donate.stripe.com/5kQ8wReA9d0G8Wl1bT38400" class="btn btn-buy">Comprar</a>
+          <a href="#sorteo" class="btn btn-accent">Participar gratis</a>
+        </div>
+      </article>
+
+      <!-- Producto 2: próximo -->
+      <article class="product">
+        <div class="thumb" style="background:radial-gradient(60% 80% at 50% 30%, rgba(255,255,255,.05), rgba(0,0,0,.8))"></div>
+        <h4>Pieza 02 — Próximamente</h4>
+        <div class="row">
+          <span class="price">—</span>
+          <span class="status status-soon">Próximamente</span>
+        </div>
+        <div class="cta-row">
+          <a href="#form-news" class="btn btn-primary">Avísame</a>
+        </div>
+      </article>
+
+      <!-- Producto 3: ejemplo agotado -->
+      <article class="product">
+        <div class="thumb" style="background:radial-gradient(60% 80% at 50% 30%, rgba(255,255,255,.05), rgba(0,0,0,.85))"></div>
+        <h4>Pieza 03 — Edición</h4>
+        <div class="row">
+          <span class="price">—</span>
+          <span class="status status-sold">Agotado</span>
+        </div>
+        <div class="cta-row">
+          <a href="#form-news" class="btn btn-primary">Quiero la próxima</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
    <!-- NEWSLETTER / SORTEO -->
 <section id="sorteo">
   <div class="container">
@@ -373,6 +454,23 @@ certeza de que la belleza siempre merece ser celebrada.</p>
       alert('No se pudo enviar. Inténtalo más tarde.');
     }
   });
+</script>
+  <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Product",
+  "name":"AGLAYA — Cruz Celestial · Drop 01 (edición limitada 10 uds)",
+  "image":["https://benditotito.github.io/AGLAYA/drop1.jpg"],
+  "description":"Pieza editorial en plata pulida. Drop 01, edición limitada a 10 unidades.",
+  "brand":{"@type":"Brand","name":"AGLAYA"},
+  "offers":{
+    "@type":"Offer",
+    "priceCurrency":"EUR",
+    "price":"24.68",
+    "availability":"https://schema.org/LimitedAvailability",
+    "url":"https://donate.stripe.com/5kQ8wReA9d0G8Wl1bT38400"
+  }
+}
 </script>
 </body>
 </html>
